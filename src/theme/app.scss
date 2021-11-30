@@ -1,0 +1,15 @@
+@use "@material/typography/mdc-typography";
+
+html {
+	@extend .mdc-typography--body1;
+}
+
+.body2 {
+	@extend .mdc-typography--body2;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        @extend .mdc-typography--headline#{$i};
+    }
+}
