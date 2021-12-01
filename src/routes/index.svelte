@@ -1,41 +1,28 @@
 <script lang="ts">
-	import Button, { Label } from '@smui/button';
-	import Menu, { MenuComponentDev } from '@smui/menu';
-	import List, { Item, Separator, Text } from '@smui/list';
-
-	let menu: MenuComponentDev;
 	let clicked = 'nothing yet';
 
-	let time: null | string
-	$: time = null;
+	$: time = getTime();
+
+	function getTime(): Promise<string> {
+		return fetch("/db-test")
+			.then(response => response.json())
+			.then(data => data.time);
+	}
+
+	function newTime() {
+		time = getTime();
+	}
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+{#await time}
+	<p>Retrieving time...</p>
+{:then value}
+	<!-- promise was fulfilled -->
+	<p>The time is {value}</p>
+{:catch error}
+	<p>Unable to get time: {error.message}</p>
+{/await}
 
-<Button>
-	<Label>An example button</Label>
-</Button>
-
-<div style="min-width: 100px;">
-	<Button on:click={() => menu.setOpen(true)}>Open Menu</Button>
-	<Menu bind:this={menu}>
-		<List>
-			<Item on:SMUI:action={() => (clicked = 'Cut')}>
-				<Text>Cut</Text>
-			</Item>
-			<Item on:SMUI:action={() => (clicked = 'Copy')}>
-				<Text>Copy</Text>
-			</Item>
-			<Item on:SMUI:action={() => (clicked = 'Paste')}>
-				<Text>Paste</Text>
-			</Item>
-			<Separator />
-			<Item on:SMUI:action={() => (clicked = 'Delete')}>
-				<Text>Delete</Text>
-			</Item>
-		</List>
-	</Menu>
-</div>
-
-<pre class="status">Clicked: {clicked}</pre>
+<button class='tui-button white-168' on:click={newTime}>
+	<label>Get new time</label>
+</button>

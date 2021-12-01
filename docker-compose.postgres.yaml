@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  sveltebin-dev-postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: taskbrain-dev
+      POSTGRES_PASSWORD: dev123
+    ports:
+      - "5420:5432"
