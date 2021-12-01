@@ -1,6 +1,7 @@
 <script lang="ts">
 	let clicked = 'nothing yet';
 
+	let time: Promise<string>;
 	$: time = getTime();
 
 	function getTime(): Promise<string> {
