@@ -22,13 +22,13 @@
 <style lang='scss'>
 	.panel {
 		margin-top: 1em;
-		width: calc(100% - 1.5em);
-		margin-left: .5em;
-    margin-right: 1em;
+		width: calc(100% - 30px);
+		margin-left: 10px;
+    margin-right: 20px;
 	}
 </style>
 
-<div class='tui-screen-800-600 bordered centered black'>
+<div class='tui-screen-800-600 bordered centered purple-168'>
 <nav class="tui-nav static">
 	<ul>
 		<li class="tui-dropdown">

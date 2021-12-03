@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Dropdown from '../components/Dropdown.svelte';
+
 	let time: Promise<string>;
 	$: time = getTime();
 
@@ -11,6 +13,8 @@
 	function newTime() {
 		time = getTime();
 	}
+
+	let clicked: string | null = null;
 </script>
 
 {#await time}
@@ -25,3 +29,15 @@
 <button class='tui-button white-168' on:click={newTime}>
 	<label>Get new time</label>
 </button>
+
+<Dropdown
+	label='Dropdown'
+	options={[
+			{ label: 'Foo', value: 'Foo' },
+			{ label: 'Bar', value: 'Bar' },
+			{ label: 'Baz', value: 'Baz' },
+		]}
+	onChange={(option) => clicked = option.value}
+/>
+
+<span>{clicked}</span>

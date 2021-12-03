@@ -29,5 +29,8 @@
     "tuicss": "^2.1.1",
     "typescript": "^4.4.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-click-outside": "^1.0.0"
+  }
 }
