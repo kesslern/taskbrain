@@ -1,7 +1,7 @@
 import db from '../db';
 
 export async function get() {
-	console.log("Running get")
+	console.log('Running get');
 	try {
 		const time = await db.query('SELECT NOW() as now');
 
@@ -10,13 +10,13 @@ export async function get() {
 				time: time[0].now
 			}
 		};
-	} catch(e) {
-		console.log(e)
+	} catch (e) {
+		console.log(e);
 		return {
-      status: 500,
-      body: {
-        error: 'Internal Server Error'
-      }
-    };
+			status: 500,
+			body: {
+				error: 'Internal Server Error'
+			}
+		};
 	}
 }

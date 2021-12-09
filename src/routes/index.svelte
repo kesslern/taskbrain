@@ -32,7 +32,7 @@
 
 		const validation = validate(body as NewTaskData);
 
-		Object.keys(fields).forEach(key => {
+		Object.keys(fields).forEach((key) => {
 			fields[key].error = validation[key];
 		});
 
@@ -47,8 +47,8 @@
 			},
 			body: JSON.stringify(body)
 		})
-			.then(res => res.json())
-			.then(res => {
+			.then((res) => res.json())
+			.then((res) => {
 				submitting = false;
 				console.log(res);
 			});
@@ -58,20 +58,15 @@
 </script>
 
 <div class='tui-panel'>
-	<div class='tui-panel-header black-255-text white-168'>
-		New Task
-	</div>
+	<div class='tui-panel-header black-255-text white-168'>New Task</div>
 	<form
 		class='tui-panel-content'
 		autocomplete='off'
 		novalidate='novalidate'
-		on:submit|preventDefault={submit}>
+		on:submit|preventDefault={submit}
+	>
 		<div class='text-input-row'>
-			<label
-				class='white-255-text'
-				for='name'>
-				Name *
-			</label>
+			<label class='white-255-text' for='name'> Name * </label>
 			<input
 				id='name'
 				class='tui-input'
@@ -90,10 +85,7 @@
 			{/if}
 		</div>
 		<div class='text-input-row'>
-			<label
-				class='white-255-text'
-				for='repeat-interval'
-				type='text'>
+			<label class='white-255-text' for='repeat-interval' type='text'>
 				Repeat Interval (s) *
 			</label>
 			<input
@@ -115,9 +107,7 @@
 		</div>
 
 		<div class='textarea-input-row'>
-			<label
-				class='white-255-text'
-				for='description'>Description</label>
+			<label class='white-255-text' for='description'>Description</label>
 			<textarea
 				id='description'
 				class='tui-textarea black-168'
@@ -125,22 +115,19 @@
 				rows='4'
 				bind:value={fields.description.value}
 				{...disabled}
-			></textarea>
+			/>
 		</div>
 
 		<div class='actions'>
 			{#if submitting}
 				<div class='tui-progress-bar'>
-					<span class='tui-indeterminate'></span>
+					<span class='tui-indeterminate' />
 				</div>
 			{:else}
 				<button class='tui-button white-168'>
 					<label>Cancel</label>
 				</button>
-				<input
-					class='tui-button white-168'
-					type='submit'
-					value='Submit' />
+				<input class='tui-button white-168' type='submit' value='Submit' />
 			{/if}
 		</div>
 	</form>

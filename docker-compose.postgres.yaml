@@ -7,6 +7,6 @@ services:
       POSTGRES_USER: taskbrain-dev
       POSTGRES_PASSWORD: dev123
     ports:
-      - "5420:5432"
+      - '5420:5432'
     volumes:
       - ./db-init:/docker-entrypoint-initdb.d
