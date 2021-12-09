@@ -26,13 +26,10 @@
 
 
 	function submit(e) {
-		submitting = true;
 		const body = Object.keys(fields).reduce((acc, key) => {
 			acc[key] = fields[key].value;
 			return acc;
 		}, {} as FormData);
-
-		console.log(body);
 
 		const validation = validate(body as NewTaskData);
 
@@ -42,6 +39,7 @@
 
 		if (hasKeys(validation)) return;
 
+		submitting = true;
 		// Post BODY to /api/tasks
 		fetch('/tasks', {
 			method: 'POST',
