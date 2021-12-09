@@ -1,16 +1,47 @@
 <script lang='ts'>
-	let name: string;
-	let description: string;
-	let repeatInterval: string;
+	import { NewTaskData, NewTaskForm, validate } from '../form';
+	import { hasKeys } from '../util';
 
-	$: if (repeatInterval?.match(/\D+$/)) {
+	let submitting: boolean;
+	$: submitting = false;
+
+	const fields: NewTaskForm = {
+		name: {
+			value: '',
+			required: true,
+		},
+		description: {
+			value: '',
+			required: true,
+		},
+		repeatInterval: {
+			value: '',
+		},
+	}
+
+	$: if (fields.repeatInterval.value?.match(/\D+$/)) {
 		// Remove all non-digit characters from repeatInterval
-		repeatInterval = repeatInterval.replace(/\D/g, '');
+		fields.repeatInterval.value = fields.repeatInterval.value.replace(/\D/g, '');
 	}
 
 
 	function submit(e) {
-		const body = { name, description, repeatInterval };
+		submitting = true;
+		const body = Object.keys(fields).reduce((acc, key) => {
+			acc[key] = fields[key].value;
+			return acc;
+		}, {} as FormData);
+
+		console.log(body);
+
+		const validation = validate(body as NewTaskData);
+
+		Object.keys(fields).forEach(key => {
+			fields[key].error = validation[key];
+		});
+
+		if (hasKeys(validation)) return;
+
 		// Post BODY to /api/tasks
 		fetch('/tasks', {
 			method: 'POST',
@@ -24,6 +55,8 @@
 				console.log(res)
 			});
 	}
+
+	$: disabled = submitting ? { disabled: '' } : {};
 </script>
 
 <div class='tui-panel'>
@@ -33,12 +66,13 @@
 	<form
 		class='tui-panel-content'
 		autocomplete='off'
+		novalidate='novalidate'
 		on:submit|preventDefault={submit}>
 		<div class='text-input-row'>
 			<label
 				class='white-255-text'
 				for='name'>
-				Name
+				Name *
 			</label>
 			<input
 				id='name'
@@ -46,15 +80,23 @@
 				name='name'
 				required
 				type='text'
-				bind:value={name}
+				{...disabled}
+				bind:value={fields.name.value}
 			/>
+		</div>
+		<div class='error-row'>
+			{#if fields.name.error}
+				<div class='red-255-text'>
+					{fields.name.error}
+				</div>
+			{/if}
 		</div>
 		<div class='text-input-row'>
 			<label
 				class='white-255-text'
 				for='repeat-interval'
-				type='number'>
-				Repeat Interval (s)
+				type='text'>
+				Repeat Interval (s) *
 			</label>
 			<input
 				id='repeat-interval'
@@ -62,8 +104,16 @@
 				name='repeatInterval'
 				type='text'
 				required
-			  bind:value={repeatInterval}
+				{...disabled}
+			  bind:value={fields.repeatInterval.value}
 			/>
+		</div>
+		<div class='error-row'>
+			{#if fields.repeatInterval.error}
+				<div class='red-255-text'>
+					{fields.repeatInterval.error}
+				</div>
+			{/if}
 		</div>
 
 		<div class='textarea-input-row'>
@@ -74,16 +124,20 @@
 				id='description'
 				class='tui-textarea black-168'
 				name='description'
-				rows='4'></textarea>
+				rows='4'
+				bind:value={fields.description.value}
+				{...disabled}
+			></textarea>
 		</div>
 
 		<div class='actions'>
-			<button class='tui-button white-168'>
+			<button class='tui-button white-168' {...disabled}>
 				<label>Cancel</label>
 			</button>
 			<input
 				class='tui-button white-168'
 				type='submit'
+				{...disabled}
 				value='Submit' />
 		</div>
 	</form>
@@ -98,12 +152,11 @@
   }
 
   .text-input-row {
-    margin-top: 20px;
     display: flex;
 
     label {
       display: inline-block;
-      min-width: 220px;
+      min-width: 240px;
       text-align: right;
       padding-right: 10px;
     }
@@ -113,9 +166,13 @@
     }
   }
 
-  .textarea-input-row {
-    margin-top: 20px;
+	.error-row {
+		min-height: 21px;
+		margin-top: 1px;
+		text-align: right;
+	}
 
+  .textarea-input-row {
     textarea {
       margin-top: 10px;
       display: block;
@@ -141,13 +198,5 @@
     input {
       width: auto;
     }
-  }
-
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0;
   }
 </style>
