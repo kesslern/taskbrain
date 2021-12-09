@@ -24,8 +24,7 @@
 		fields.repeatInterval.value = fields.repeatInterval.value.replace(/\D/g, '');
 	}
 
-
-	function submit(e) {
+	function submit() {
 		const body = Object.keys(fields).reduce((acc, key) => {
 			acc[key] = fields[key].value;
 			return acc;
