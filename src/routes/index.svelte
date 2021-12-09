@@ -8,16 +8,16 @@
 	const fields: NewTaskForm = {
 		name: {
 			value: '',
-			required: true,
+			required: true
 		},
 		description: {
 			value: '',
-			required: true,
+			required: true
 		},
 		repeatInterval: {
-			value: '',
-		},
-	}
+			value: ''
+		}
+	};
 
 	$: if (fields.repeatInterval.value?.match(/\D+$/)) {
 		// Remove all non-digit characters from repeatInterval
@@ -52,7 +52,8 @@
 		})
 			.then(res => res.json())
 			.then(res => {
-				console.log(res)
+				submitting = false;
+				console.log(res);
 			});
 	}
 
@@ -105,7 +106,7 @@
 				type='text'
 				required
 				{...disabled}
-			  bind:value={fields.repeatInterval.value}
+				bind:value={fields.repeatInterval.value}
 			/>
 		</div>
 		<div class='error-row'>
@@ -131,14 +132,19 @@
 		</div>
 
 		<div class='actions'>
-			<button class='tui-button white-168' {...disabled}>
-				<label>Cancel</label>
-			</button>
-			<input
-				class='tui-button white-168'
-				type='submit'
-				{...disabled}
-				value='Submit' />
+			{#if submitting}
+				<div class='tui-progress-bar'>
+					<span class='tui-indeterminate'></span>
+				</div>
+			{:else}
+				<button class='tui-button white-168'>
+					<label>Cancel</label>
+				</button>
+				<input
+					class='tui-button white-168'
+					type='submit'
+					value='Submit' />
+			{/if}
 		</div>
 	</form>
 </div>
@@ -166,11 +172,11 @@
     }
   }
 
-	.error-row {
-		min-height: 21px;
-		margin-top: 1px;
-		text-align: right;
-	}
+  .error-row {
+    min-height: 21px;
+    margin-top: 1px;
+    text-align: right;
+  }
 
   .textarea-input-row {
     textarea {
