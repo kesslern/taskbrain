@@ -2,12 +2,15 @@ import db from '../db';
 import type { NewTaskData } from '../form';
 import { validate } from '../form';
 import type { EndpointOutput } from '@sveltejs/kit';
+import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
 
 type ErrorBody = {
 	error: string;
-};
+} | Record<string, string>;
 
-export function post(request: { body: NewTaskData }): EndpointOutput<number | ErrorBody> {
+type EndpointResponse<T extends DefaultBody> = Promise<EndpointOutput<T | ErrorBody>>;
+
+export async function post(request: { body: NewTaskData }): EndpointResponse<number> {
 	try {
 		const validation = validate(request.body);
 		if (Object.keys(validation).length > 0) {
