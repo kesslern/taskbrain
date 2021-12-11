@@ -5,7 +5,7 @@ export async function handle({ request, resolve }): Promise<ServerResponse> {
     return await resolve(request);
   } catch (error) {
     const body = JSON.stringify({
-      error: error.message ?? 'Internal server error'
+      error: error.body ?? 'Internal server error'
     });
 
     return {
