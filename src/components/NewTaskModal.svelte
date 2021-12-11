@@ -51,6 +51,10 @@
 			.then((res) => {
 				submitting = false;
 				console.log(res);
+			})
+			.catch((err) => {
+				submitting = false;
+				console.error(err);
 			});
 	}
 
