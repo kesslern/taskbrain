@@ -35,6 +35,7 @@
   },
   "type": "module",
   "dependencies": {
-    "svelte-click-outside": "^1.0.0"
+    "svelte-click-outside": "^1.0.0",
+    "svelte-component-library": "file:tui-components"
   }
 }

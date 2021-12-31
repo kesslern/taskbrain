@@ -2,7 +2,7 @@ import Component from '../src/index';
 import TasksList from '../src/TasksList';
 
 export default {
-  title: 'Component',
+  title: 'Tasks List',
   component: TasksList,
 };
 
