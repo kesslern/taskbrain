@@ -1,0 +1,54 @@
+{
+  "name": "svelte-component-library",
+  "version": "0.0.1",
+  "svelte": "src/index.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "test": "jest test",
+    "test:watch": "yarn test -- --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "del-cli docs && build-storybook -c .storybook -o docs"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@rollup/plugin-node-resolve": "^13.1.2",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/addons": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.9",
+    "@storybook/manager-webpack5": "^6.4.9",
+    "@storybook/svelte": "^6.4.9",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/svelte": "^3.0.3",
+    "babel-jest": "^27.4.5",
+    "babel-loader": "^8.2.3",
+    "del-cli": "^4.0.1",
+    "jest": "^27.4.5",
+    "rollup": "^2.62.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "svelte": "^3.44.3",
+    "svelte-jester": "^2.1.5",
+    "svelte-loader": "^3.1.2"
+  },
+  "keywords": [
+    "svelte"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "resolutions": {
+    "acorn": "8.0.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
