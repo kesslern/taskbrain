@@ -1,5 +1,5 @@
 {
-  "name": "svelte-component-library",
+  "name": "tuicss-components",
   "version": "0.0.1",
   "svelte": "src/index.js",
   "module": "dist/index.mjs",

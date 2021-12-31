@@ -36,6 +36,6 @@
   "type": "module",
   "dependencies": {
     "svelte-click-outside": "^1.0.0",
-    "svelte-component-library": "file:tui-components"
+    "tuicss-components": "file:tuicss-components"
   }
 }
