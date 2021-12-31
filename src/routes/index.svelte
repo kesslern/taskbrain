@@ -1,5 +1,5 @@
 <script>
-	import NewTaskModal from '../components/NewTaskModal.svelte';
+	import TasksList from '../components/TasksList.svelte';
 </script>
 
-<NewTaskModal />
+<TasksList />
