@@ -1,12 +1,4 @@
-MIT License
-
-NOTICE:
-=======
-svelte-component-library-template is based on sveltejs/component-template:
-https://github.com/sveltejs/component-template
-That was originally created by Rich Harris.
-
-svelte-component-library-template is Copyright (c) 2020 Nir Maoz
+# License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
