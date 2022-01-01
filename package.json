@@ -30,12 +30,9 @@
     "svelte-preprocess": "^4.9.4",
     "tslib": "^2.3.1",
     "tuicss": "^2.1.1",
+    "tuicss-components": "file:tuicss-components",
     "typescript": "^4.4.3",
     "xstate": "^4.26.1"
   },
-  "type": "module",
-  "dependencies": {
-    "svelte-click-outside": "^1.0.0",
-    "tuicss-components": "file:tuicss-components"
-  }
+  "type": "module"
 }

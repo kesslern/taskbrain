@@ -1,4 +1,3 @@
-import Component from '../src/index';
 import TasksList from '../src/TasksList';
 
 export default {

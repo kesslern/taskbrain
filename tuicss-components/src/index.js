@@ -1,1 +1,2 @@
-export { default as default } from './TasksList.svelte';
+export { default as InitTuiCss } from './InitTuiCss.svelte';
+export { default as TasksList } from './TasksList.svelte';

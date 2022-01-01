@@ -16,6 +16,7 @@
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "@rollup/plugin-node-resolve": "^13.1.2",
+    "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addons": "^6.4.9",
     "@storybook/builder-webpack5": "^6.4.9",
     "@storybook/manager-webpack5": "^6.4.9",
@@ -30,6 +31,7 @@
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "svelte": "^3.44.3",
+    "svelte-click-outside": "^1.0.0",
     "svelte-jester": "^2.1.5",
     "svelte-loader": "^3.1.2"
   },

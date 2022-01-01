@@ -1,15 +1,8 @@
 <script lang="ts">
-	import { browser } from '$app/env';
-	import 'tuicss/dist/tuicss.css';
-	import { onMount } from 'svelte';
-
-	onMount(async () => {
-		if (browser) {
-			await import('tuicss/dist/tuicss.js');
-		}
-	});
+	import InitTuiCss from 'tuicss-components/src/InitTuiCss.svelte';
 </script>
 
+<InitTuiCss />
 <div class="tui-screen-800-600 bordered centered purple-168">
 	<nav class="tui-nav static white-168">
 		<ul>
