@@ -1,12 +1,21 @@
 <script lang='ts'>
-	import ClickOutside from 'svelte-click-outside';
-	import { useMachine } from '@xstate/svelte';
-	import { createMachine } from 'xstate';
-	import { ButtonContext, ButtonEvent } from './types';
-
 	export let label: string;
 	export let options: DropdownOption[];
 	export let onChange: (option: DropdownOption) => void;
+
+	import ClickOutside from 'svelte-click-outside';
+	import { useMachine } from '@xstate/svelte';
+	import { createMachine } from 'xstate';
+
+	export type ButtonEvent =
+		| { type: 'button-click' }
+		| { type: 'click-away' }
+		| { type: 'select'; value: string };
+
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	export interface ButtonContext {
+	}
+
 
 	const buttonMachine = createMachine<ButtonContext, ButtonEvent>(
 		{
