@@ -20,3 +20,7 @@ export const parameters = {
 }
 
 export const decorators = [() => tuicss];
+
+if (module.hot) {
+  module.hot.accept();
+}
