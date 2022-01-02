@@ -1,11 +1,13 @@
 <script lang='ts'>
-	import { createEventDispatcher } from 'svelte';
+	import { Button, Color } from "../";
 
 	export let label: string;
 	export let options: DropdownOption[];
+	export let colors: Color.ColorProps | undefined
 
 	import ClickOutside from 'svelte-click-outside';
 	import { useMachine } from '@xstate/svelte';
+	import { createEventDispatcher } from 'svelte';
 	import { createMachine } from 'xstate';
 
 	export type ButtonEvent =
@@ -61,9 +63,7 @@
 </script>
 
 <li class='tui-dropdown'>
-	<button class='tui-button white-168' on:click={() => send('button-click')}>
-		{label}
-	</button>
+	<Button on:click={() => send('button-click')} {colors} {label}/>
 	{#if $state.value !== 'closed'}
 		<ClickOutside on:clickoutside={() => send('click-away')}>
 			<div class='tui-dropdown-content block'>

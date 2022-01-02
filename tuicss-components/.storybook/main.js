@@ -8,6 +8,8 @@ module.exports = {
   stories: [
     '../stories/**/*.stories.js',
     '../stories/**/*.stories.svelte',
+    '../src/**/*.stories.js',
+    '../src/**/*.stories.svelte',
   ],
   addons: [
     "@storybook/addon-essentials",
