@@ -1,7 +1,7 @@
 <script>
 	import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
 
-	import Dropdown from '../src/Dropdown.svelte';
+	import Dropdown from '../src/components/Dropdown.svelte';
 
 	let selection = null
 </script>

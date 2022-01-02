@@ -32,7 +32,8 @@
     "svelte": "^3.44.3",
     "svelte-click-outside": "^1.0.0",
     "svelte-jester": "^2.1.5",
-    "svelte-loader": "^3.1.2"
+    "svelte-loader": "^3.1.2",
+    "tuicss": "^2.1.1"
   },
   "keywords": [
     "svelte"

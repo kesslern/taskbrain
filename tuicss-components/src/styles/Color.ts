@@ -148,3 +148,35 @@ export enum Theme {
 	Warning = 'warning',
 	Info = 'info',
 }
+
+export interface ColorProps {
+	background?: Background
+	border?: Border,
+	borderHover?: BorderHover,
+	hover?: Hover,
+	text?: Text,
+	textHover?: TextHover,
+}
+
+export function toClasses(colors?: ColorProps): string {
+	const classes = []
+	if (colors?.background) {
+		classes.push(colors.background)
+	}
+	if (colors?.border) {
+		classes.push(colors.border)
+	}
+	if (colors?.borderHover) {
+		classes.push(colors.borderHover)
+	}
+	if (colors?.hover) {
+		classes.push(colors.hover)
+	}
+	if (colors?.text) {
+		classes.push(colors.text)
+	}
+	if (colors?.textHover) {
+		classes.push(colors.textHover)
+	}
+	return classes.join(' ')
+}
