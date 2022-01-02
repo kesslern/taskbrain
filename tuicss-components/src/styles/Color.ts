@@ -1,3 +1,25 @@
+enum Colors {
+	Blue168 = 'blue-168',
+	Green168 = 'green-168',
+	Cyan168 = 'cyan-168',
+	Red168 = 'red-168',
+	Purple168 = 'purple-168',
+	Yellow168 = 'yellow-168',
+	White168 = 'white-168',
+	Orange168 = 'orange-168',
+	Blue255 = 'blue-255',
+	Green255 = 'green-255',
+	Cyan255 = 'cyan-255',
+	Red255 = 'red-255',
+	Purple255 = 'purple-255',
+	Yellow255 = 'yellow-255',
+	Orange255 = 'orange-255',
+	White = 'white',
+	Black = 'black',
+}
+
+export default Colors
+
 export enum Background {
 	Blue168 = 'blue-168',
 	Green168 = 'green-168',

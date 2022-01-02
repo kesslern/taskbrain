@@ -1,7 +1,8 @@
 <script lang='ts'>
+	import { createEventDispatcher } from 'svelte';
+
 	export let label: string;
 	export let options: DropdownOption[];
-	export let onChange: (option: DropdownOption) => void;
 
 	import ClickOutside from 'svelte-click-outside';
 	import { useMachine } from '@xstate/svelte';
@@ -16,6 +17,7 @@
 	export interface ButtonContext {
 	}
 
+	const dispatch = createEventDispatcher();
 
 	const buttonMachine = createMachine<ButtonContext, ButtonEvent>(
 		{
@@ -44,7 +46,7 @@
 		{
 			actions: {
 				select: (context, event) => {
-					onChange?.(event['value']);
+					dispatch('select', event['value']['value']);
 				}
 			}
 		}
