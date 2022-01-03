@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import { Button, Color } from "../";
+	import { Button, Color } from "../../index";
 
 	export let label: string;
 	export let options: DropdownOption[];

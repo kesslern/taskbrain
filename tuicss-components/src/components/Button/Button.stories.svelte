@@ -1,6 +1,6 @@
 <script>
 	import { Meta, Story } from '@storybook/addon-svelte-csf';
-	import { Color, Button } from '../src';
+	import { Color, Button } from '../../index';
 </script>
 
 <Meta title='Components/Button' component={Button} />
@@ -19,6 +19,10 @@
 		  background: Color.Background.Blue168,
 		  text: Color.Text.White
 		}}/>
+	<Button
+	    class='button'
+		label='Disabled'
+		disabled/>
 </Story>
 
 <style>
