@@ -21,7 +21,6 @@ module.exports = {
     svelteLoader.options.preprocess = require('svelte-preprocess')()
     config.resolve = {
       ...config.resolve,
-      // see below for an explanation
       alias: {
         svelte: path.resolve("node_modules", "svelte"),
       },

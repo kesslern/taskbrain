@@ -2,7 +2,7 @@
 	import * as Color from "../../styles/Color.ts";
 
 	export let label = ""
-	export let colors: Color.ColorProps | undefined
+	export let colors: Color.ColorProps = undefined
 
 	let classes: string
 	$: classes = Color.toClasses({

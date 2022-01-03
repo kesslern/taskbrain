@@ -1,0 +1,31 @@
+{
+  "preset": "ts-jest/presets/js-with-ts",
+  "globals": {
+    "ts-jest": {
+      "diagnostics": false
+    }
+  },
+  "transform": {
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.svelte$": [
+      "svelte-jester",
+      {
+        "preprocess": true
+      }
+    ]
+  },
+  "moduleNameMapper": {
+    "\\.(css|less|scss)$": "identity-obj-proxy",
+    "\\$lib/(.+)$": "<rootDir>/src/lib/$1"
+  },
+  "extensionsToTreatAsEsm": [
+    ".svelte"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "svelte"
+  ],
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ]
+}
