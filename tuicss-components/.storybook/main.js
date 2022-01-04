@@ -6,8 +6,6 @@ module.exports = {
     builder: 'webpack5',
   },
   stories: [
-    '../stories/**/*.stories.js',
-    '../stories/**/*.stories.svelte',
     '../src/**/*.stories.js',
     '../src/**/*.stories.svelte',
   ],
@@ -17,7 +15,7 @@ module.exports = {
   ],
   preprocess: preprocess(),
   webpackFinal: async (config) => {
-    const svelteLoader = config.module.rules.find( (r) => r.loader && r.loader.includes('svelte-loader'))
+    const svelteLoader = config.module.rules.find((r) => r.loader && r.loader.includes('svelte-loader'))
     svelteLoader.options.preprocess = require('svelte-preprocess')()
     config.resolve = {
       ...config.resolve,

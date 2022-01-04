@@ -16,7 +16,8 @@
   },
   "moduleNameMapper": {
     "\\.(css|less|scss)$": "identity-obj-proxy",
-    "\\$lib/(.+)$": "<rootDir>/src/lib/$1"
+    "\\$lib/(.+)$": "<rootDir>/src/lib/$1",
+    "^clsx$": "<rootDir>/mocks/clsx.jest.js"
   },
   "extensionsToTreatAsEsm": [
     ".svelte"
