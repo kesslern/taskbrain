@@ -1,10 +1,13 @@
+<script context="module" lang="ts">
+  export type ButtonElements = "button" | "a" | "input"
+</script>
+
 <script lang="ts">
-  import * as Color from "../../styles/Color.ts";
+  import * as Color from "../../styles/Color";
   import clsx from "clsx";
 
   export let label = ""
   export let colors: Color.ColorProps = undefined
-  export type ButtonElements = "button" | "a" | "input"
   export let element: ButtonElements = "button"
 
   const defaultColors = {
@@ -27,7 +30,7 @@
 {#if element === 'button'}
   <button {...props} on:click>{label}</button>
 {:else if element === 'a'}
-  <a {...props} on:click>{label}</a>
+  <a {...props} href={$$props['href'] ?? '#'}on:click>{label}</a>
 {:else if element === 'input'}
   <input {...props} value={label} type="button" on:click />
 {/if}

@@ -1,7 +1,6 @@
 <script>
 	import { Meta, Story } from '@storybook/addon-svelte-csf';
 	import { Color, Button } from '../../index';
-	import Util from "../../styles/Util.ts";
 </script>
 
 <Meta title='Components/Button' component={Button} />

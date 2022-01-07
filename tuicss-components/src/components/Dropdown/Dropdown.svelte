@@ -1,3 +1,19 @@
+<script context="module" lang="ts">
+	export type ButtonEvent =
+		| { type: 'button-click' }
+		| { type: 'click-away' }
+		| { type: 'select'; value: string };
+
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	export interface ButtonContext {
+	}
+
+	export type DropdownOption = {
+		label: string;
+		value: string;
+	};
+</script>
+
 <script lang='ts'>
 	import { Button, Color } from "../../index";
 
@@ -10,14 +26,6 @@
 	import { createEventDispatcher } from 'svelte';
 	import { createMachine } from 'xstate';
 
-	export type ButtonEvent =
-		| { type: 'button-click' }
-		| { type: 'click-away' }
-		| { type: 'select'; value: string };
-
-	// eslint-disable-next-line @typescript-eslint/no-empty-interface
-	export interface ButtonContext {
-	}
 
 	const dispatch = createEventDispatcher();
 
@@ -47,17 +55,12 @@
 		},
 		{
 			actions: {
-				select: (context, event) => {
+				select: (_, event) => {
 					dispatch('select', event['value']['value']);
 				}
 			}
 		}
 	);
-
-	export type DropdownOption = {
-		label: string;
-		value: string;
-	};
 
 	const { state, send } = useMachine(buttonMachine);
 </script>

@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",
+    "check": "svelte-check --compiler-warnings ts-import-path:ignore",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "del-cli docs && build-storybook -c .storybook -o docs",
@@ -36,6 +37,7 @@
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "svelte": "^3.44.3",
+    "svelte-check": "^2.2.11",
     "svelte-click-outside": "^1.0.0",
     "svelte-jester": "^2.0.1",
     "svelte-loader": "^3.1.2",
