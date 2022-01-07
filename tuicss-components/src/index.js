@@ -1,5 +1,4 @@
-// @ts-nocheck
-import * as Color from './styles/Color.ts';
+import * as Color from './styles/Color';
 export { Color }
 
 export { default as Button } from './components/Button/Button.svelte';
