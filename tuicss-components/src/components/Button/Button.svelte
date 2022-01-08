@@ -23,6 +23,7 @@ $: classes = Color.toClasses({
   ...colors,
 });
 
+let props: any
 $: props = {
   ...$$props,
   class: clsx("tui-button", classes, $$props["class"]),
