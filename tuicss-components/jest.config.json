@@ -24,7 +24,8 @@
   ],
   "moduleFileExtensions": [
     "js",
-    "svelte"
+    "svelte",
+    "ts"
   ],
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom/extend-expect"
