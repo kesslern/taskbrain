@@ -12,6 +12,7 @@ module.exports = {
   addons: [
     "@storybook/addon-essentials",
     '@storybook/addon-svelte-csf',
+    '@storybook/addon-controls',
   ],
   preprocess: preprocess(),
   webpackFinal: async (config) => {

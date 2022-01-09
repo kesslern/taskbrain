@@ -1,9 +1,9 @@
 <script>
-import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+  import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
 
-import Dropdown from "./Dropdown.svelte";
+  import Dropdown from "./Dropdown.svelte";
 
-let selection = null;
+  let selection = null;
 </script>
 
 <Meta title="Components/Dropdown" component="{Dropdown}" />

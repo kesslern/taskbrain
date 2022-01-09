@@ -1,6 +1,6 @@
 <script>
-import { Meta, Story } from "@storybook/addon-svelte-csf";
-import { Color, Button } from "../../index";
+  import { Meta, Story } from "@storybook/addon-svelte-csf";
+  import { Color, Button } from "../../index";
 </script>
 
 <Meta title="Components/Button" component="{Button}" />
@@ -37,7 +37,7 @@ import { Color, Button } from "../../index";
 </Story>
 
 <style>
-:global(.button) {
-  margin-top: 16px;
-}
+  :global(.button) {
+    margin-top: 16px;
+  }
 </style>

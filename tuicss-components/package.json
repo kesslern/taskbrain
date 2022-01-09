@@ -17,6 +17,7 @@
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.0",
     "@rollup/plugin-node-resolve": "^13.1.2",
+    "@storybook/addon-controls": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-svelte-csf": "^1.1.0",
     "@storybook/addons": "^6.4.9",
